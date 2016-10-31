@@ -22,13 +22,15 @@ namespace Util
             if (param.Length >= min) { minChar = false; return minChar; }
             else { return minChar; }
         }
-        
+
         static public bool IsEmail(string param)
-        {            
-            bool isEmail = Regex.IsMatch(param, @"\A(?:[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?)\Z", RegexOptions.IgnoreCase);
-            return isEmail;
+        {
+            // Validamos direcciones simples (de la forma dot-atom "@" dot-atom)
+            string atom = @"[a-z0-9!#$%&'*+\-/=?^_`{|}~]+";
+            string dotAtom = atom + @"(\." + atom + ")*"; //atom ("." atom)*
+            return Regex.IsMatch(param, @"\A" + dotAtom + "@" + dotAtom + @"\z", RegexOptions.IgnoreCase);
         }
-        
+
         static public bool Coinciden(string pass1, string pass2)
         {
             bool coinciden = false;
