@@ -78,7 +78,7 @@ namespace UI.Desktop
 
             if (txtDescripcion.Text.Trim() == "")
                 mensaje += "La descripcion no puede estar en blanco" + "\n";
-            if (Validaciones.minChar(txtDescripcion.Text, 3))
+            if (Validaciones.MinChar(txtDescripcion.Text, 3))
                 mensaje += "La descripcion debe tener por lo menos 3 caracteres" + "\n";
 
             if (!String.IsNullOrEmpty(mensaje))
@@ -117,10 +117,10 @@ namespace UI.Desktop
 
         private void txtDescripcion_Leave(object sender, EventArgs e)
         {
-            if (Validaciones.isEmpty(txtDescripcion.Text)) { errorDescripcion.SetError(txtDescripcion, "Ingrese un Nombre"); }
+            if (Validaciones.IsEmpty(txtDescripcion.Text)) { errorDescripcion.SetError(txtDescripcion, "Ingrese un Nombre"); }
             else
             {
-                if (Validaciones.minChar(txtDescripcion.Text, 3)) { errorDescripcion.SetError(txtDescripcion, "Caracteres minimos 3"); }
+                if (Validaciones.MinChar(txtDescripcion.Text, 3)) { errorDescripcion.SetError(txtDescripcion, "Caracteres minimos 3"); }
                 else { errorDescripcion.Clear(); }
             }  
         }

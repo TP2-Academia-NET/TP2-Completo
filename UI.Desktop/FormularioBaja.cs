@@ -61,7 +61,7 @@ namespace UI.Desktop
         
         private void txtBorrar_TextChanged(object sender, EventArgs e)
         {
-            if (Validaciones.comparaString(txtBorrar.Text, "borrar"))
+            if (Validaciones.ComparaString(txtBorrar.Text, "borrar"))
             {
                 btnAceptar.Enabled = true;
             }

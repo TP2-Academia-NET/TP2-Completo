@@ -85,7 +85,7 @@ namespace UI.Desktop
             bool valida = false;
             string mensaje = "";
 
-            if (Validaciones.isEmpty(txtNombre.Text))
+            if (Validaciones.IsEmpty(txtNombre.Text))
                 mensaje += "El nombre no puede estar en blanco" + "\n";
             if (txtApellido.Text.Trim() == "")
                 mensaje += "El apellido no puede estar en blanco" + "\n";
@@ -144,20 +144,20 @@ namespace UI.Desktop
 
         private void txtNombre_Leave(object sender, EventArgs e)
         {
-            if (Validaciones.isEmpty(txtNombre.Text)) { errorNombre.SetError(txtNombre, "Ingrese un Nombre"); }
+            if (Validaciones.IsEmpty(txtNombre.Text)) { errorNombre.SetError(txtNombre, "Ingrese un Nombre"); }
             else
             {
-                if (Validaciones.minChar(txtNombre.Text, 3)) { errorNombre.SetError(txtNombre, "Caracteres minimos 3"); }
+                if (Validaciones.MinChar(txtNombre.Text, 3)) { errorNombre.SetError(txtNombre, "Caracteres minimos 3"); }
                 else { errorNombre.Clear(); }
             }           
         }
 
         private void txtApellido_Leave(object sender, EventArgs e)
         {
-            if (Validaciones.isEmpty(txtApellido.Text)) { errorApellido.SetError(txtApellido, "Ingrese un Apellido"); }
+            if (Validaciones.IsEmpty(txtApellido.Text)) { errorApellido.SetError(txtApellido, "Ingrese un Apellido"); }
             else
             {
-                if (Validaciones.minChar(txtApellido.Text, 3)) { errorApellido.SetError(txtApellido, "Caracteres minimos 3"); }
+                if (Validaciones.MinChar(txtApellido.Text, 3)) { errorApellido.SetError(txtApellido, "Caracteres minimos 3"); }
                 else { errorApellido.Clear(); }
             }
         }
@@ -174,10 +174,10 @@ namespace UI.Desktop
 
         private void txtEmail_Leave(object sender, EventArgs e)
         {
-            if (Validaciones.isEmpty(txtEmail.Text)) { errorEmail.SetError(txtEmail, "Ingrese un Email"); } 
+            if (Validaciones.IsEmpty(txtEmail.Text)) { errorEmail.SetError(txtEmail, "Ingrese un Email"); } 
             else
             {
-                if (!Validaciones.isEmail(txtEmail.Text)) { errorEmail.SetError(txtEmail, "No es un formato de Email valido"); }
+                if (!Validaciones.IsEmail(txtEmail.Text)) { errorEmail.SetError(txtEmail, "No es un formato de Email valido"); }
                 else { errorEmail.Clear(); } 
             }
         }
@@ -207,10 +207,10 @@ namespace UI.Desktop
 
         private void txtClave_Leave(object sender, EventArgs e)
         {
-            if (Validaciones.isEmpty(txtClave.Text)) { errorClave.SetError(txtClave, "Ingrese una Clave"); }
+            if (Validaciones.IsEmpty(txtClave.Text)) { errorClave.SetError(txtClave, "Ingrese una Clave"); }
             else
             {
-                if (Validaciones.minChar(txtClave.Text, 8)) { errorClave.SetError(txtClave, "Caracteres minimos 8"); }
+                if (Validaciones.MinChar(txtClave.Text, 8)) { errorClave.SetError(txtClave, "Caracteres minimos 8"); }
                 else { errorClave.Clear(); }
             }
         }
@@ -222,10 +222,10 @@ namespace UI.Desktop
 
         private void txtUsuario_Leave(object sender, EventArgs e)
         {
-            if (Validaciones.isEmpty(txtUsuario.Text)) { errorUsuario.SetError(txtUsuario, "Ingrese un nombre de Usuario"); }
+            if (Validaciones.IsEmpty(txtUsuario.Text)) { errorUsuario.SetError(txtUsuario, "Ingrese un nombre de Usuario"); }
             else
             {
-                if (Validaciones.minChar(txtUsuario.Text, 3)) { errorUsuario.SetError(txtUsuario, "Caracteres minimos 3"); }
+                if (Validaciones.MinChar(txtUsuario.Text, 3)) { errorUsuario.SetError(txtUsuario, "Caracteres minimos 3"); }
                 else { errorUsuario.Clear(); }
             }
         }
@@ -237,7 +237,7 @@ namespace UI.Desktop
 
         private void txtConfirmarClave_Leave(object sender, EventArgs e)
         {
-            if (!Validaciones.coinciden(txtClave.Text, txtConfirmarClave.Text)) { errorConfirmarClave.SetError(txtConfirmarClave, "Las Claves no coinciden"); }
+            if (!Validaciones.Coinciden(txtClave.Text, txtConfirmarClave.Text)) { errorConfirmarClave.SetError(txtConfirmarClave, "Las Claves no coinciden"); }
             else { errorConfirmarClave.Clear(); }
         }
 
